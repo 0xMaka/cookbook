@@ -9,10 +9,9 @@ Sweet Cache What Light Through Yonder Window Breaks?
 - - Some lower end x86/x64 systems won't have an L3
 
 ## Cache lines
-- The CPU requests data from RAM in blocks of 64 bytes (23/128 also possible)
-It doesn't store individual byte in cache but instead these in these blocks. These blocks are called cache lines. 
-- It does this to reduce bus traffic
-The CPU assumes we might need adjecent data and so reads/writes all 64 surrounding bytes. So when we need the next byte it has already been cached.
+- The CPU requests data from RAM in blocks of 64 bytes (32/128 also possible)
+It doesn't store individual byte in cache but instead these in these cache lines. It does this to reduce bus traffic
+- The CPU assumes we might need adjecent data and so reads/writes all 64 surrounding bytes. So when we need the next byte it has already been cached.
 *NOTE* It doesn't read single bytes from RAM or store single bytes in cache.
 
 - To work out which line an address comes from, divide the address by 64 and discard the remainder.
@@ -90,6 +89,9 @@ Thrashing is the act of filling the cache with data and not using it. For exampl
 
 
 Sources resources and further explanations:
-Performance x64: Caches 1 - https://youtu.be/bHzrhH7yySA
-Recitation 5 Cache Lab and Blocking - https://www.youtube.com/watch?v=HFa1NkFTeSw
-CppCon 2017: Carl Cook “When a Microsecond Is an Eternity: High Performance Trading Systems in C++” - https://www.youtube.com/watch?v=NH1Tta7purM
+
+- Performance x64: Caches 1 - https://youtu.be/bHzrhH7yySA
+
+- Recitation 5 Cache Lab and Blocking - https://www.youtube.com/watch?v=HFa1NkFTeSw
+
+- CppCon 2017: Carl Cook “When a Microsecond Is an Eternity: High Performance Trading Systems in C++” - https://www.youtube.com/watch?v=NH1Tta7purM
