@@ -1,0 +1,22 @@
+pkgname=lighthouse-ethereum-bin                                                                                                           
+_pkgname=lighthouse                                                                                                                       
+pkgver=4.0.2                                                                                                                              
+pkgrel=1                                                                                                                                  
+pkgdesc='Ethereum 2.0 client'                                                                                                             
+arch=('x86_64')                                                                                                                           
+url='https://lighthouse.sigmaprime.io/'                                                                                                   
+license=('Apache License 2.0')                                                                                                            
+depends=('openssl')                                                                                                                       
+provides=('lighthouse')                                                                                                                   
+conflicts=('lighthouse')                                                                                                                  
+replaces=('lighthouse')                                                                                                                   
+source=("https://github.com/sigp/lighthouse/blob/hotfix-exit-verification/LICENSE")                                                       
+source_x86_64=("https://github.com/sigp/lighthouse/releases/download/v4.0.2-rc.0/lighthouse-v4.0.2-rc.0-x86_64-unknown-linux-gnu.tar.gz") 
+sha256sums=('91d7b651aa6c6ffe6c36445f2652b49ff86134f6dc558a8bf35a8d407dfe2578')                                                           
+sha256sums_x86_64=('af72f0260064551e05b3d17d39f526c10b93d461bd1f1daba67f00fd04e7313e')                                                    
+                                                                                                                                          
+                                                                                                                                          
+package() {                                                                                                                               
+    install -D -m755 "$srcdir/lighthouse" "$pkgdir/usr/bin/lighthouse"                                                                    
+    install -D -m644 "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/$_pkgname/LICENSE"                                                     
+}                                                                                                                                         
